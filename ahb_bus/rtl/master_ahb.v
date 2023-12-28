@@ -127,6 +127,7 @@ module ahb_master #(
                             if (r_counter == r_burst - 1) begin
                                 r_counter <= 0;
                                 p_state <= 3;
+                                r_htrans <= 2'd0;
                             end else begin
                                 r_haddr <= r_haddr + (r_hsize_no >> 3);
                                 r_htrans <= 2'd3;

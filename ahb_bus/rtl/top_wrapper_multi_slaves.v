@@ -9,7 +9,7 @@ module top_ahb_multi_slaves #(
     parameter                   TRANS_SIZE = 32  
 )(
     input                       hclk,
-    input                       sram_clk,
+//    input                       sram_clk,
     input                       hresetn,
     input                       stop_trans,
     input                       start_trans,
@@ -104,7 +104,7 @@ interconnect_mux mux (
 
 sramc_top slave1 (
     .hclk            (hclk     ),
-    .sram_clk        (sram_clk ),
+    .sram_clk        (hclk ),
     .hresetn         (hresetn  ),
     .hsel            (w_hsel[0]),
     .hwrite          (w_hwrite ),
@@ -125,7 +125,7 @@ sramc_top slave1 (
 
  sramc_top slave2 (
     .hclk            (hclk     ),
-    .sram_clk        (sram_clk ),
+    .sram_clk        (hclk ),
     .hresetn         (hresetn  ),
     .hsel            (w_hsel[1]),
     .hwrite          (w_hwrite ),
@@ -146,7 +146,7 @@ sramc_top slave1 (
 
  sramc_top slave3 (
     .hclk            (hclk     ),
-    .sram_clk        (sram_clk ),
+    .sram_clk        (hclk ),
     .hresetn         (hresetn  ),
     .hsel            (w_hsel[2]),
     .hwrite          (w_hwrite ),

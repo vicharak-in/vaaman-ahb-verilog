@@ -29,7 +29,7 @@ module tb_top_ahb_multi_slave ();
 
     top_ahb_multi_slaves top_mod(
         .hclk          (hclk),
-        .sram_clk      (sram_clk),
+//        .sram_clk      (sram_clk),
         .hresetn       (hresetn),
         .stop_trans    (stop_trans),
         .start_trans   (start_trans),
@@ -43,7 +43,7 @@ module tb_top_ahb_multi_slave ();
 
     );
     always #5 hclk = ~hclk;
-    assign sram_clk = ~hclk;
+//    assign sram_clk = ~hclk;
     initial begin
 	    hclk = 0;
         start_trans = 0;
@@ -137,6 +137,7 @@ module tb_top_ahb_multi_slave ();
 
         #10 ext_hwdata = 32'd30;
             ext_hwrite = 1;
+            #10
             ext_hburst = 3'd3;
             ext_hsize = 3'd2;
             ext_haddr = 32'h40000090;
@@ -145,80 +146,17 @@ module tb_top_ahb_multi_slave ();
         #10 ext_hwdata = 32'd53;
         #10 ext_hwdata = 32'd58;
         #10 stop_trans = 1;
+        #10 stop_trans = 0;
+            ext_hwrite = 0;
+            ext_hburst = 3'd3;
+            ext_hsize = 3'd2;
+            ext_haddr = 32'h40000090;
+        #60
+            stop_trans = 1;
+            #10 stop_trans = 0;
+            start_trans = 0;
 
-
-
-
-        //     #10 stop_trans = 1;
-        //     #10 stop_trans = 0; 
-        //     #10
-        //     ext_haddr = 32'h4000001e;
-        //     ext_hwrite = 0;
-        //     ext_hburst = 3'd3;
-        //     ext_hsize = 3'd2;
-        // #50
-        //     stop_trans = 1;   
-
- 
-              
-
-        // #10 stop_trans = 0;
-        //     ext_haddr = 32'd32;
-        //     ext_hsize = 3'd2;
-        //     ext_hwrite = 1;
-        //     ext_hburst = 3'd0;
-            
-
-        // #10 ext_hwdata = 32'd54;
-        //     ext_haddr = 32'd34;
-        //     ext_hsize = 3'd2;
-        //     ext_hwrite = 1;
-        //     ext_hburst = 3'd0;
-
-        // #10 ext_hwdata = 32'd56;
-        //     ext_haddr = 32'd102;
-        //     ext_hsize = 3'd2;
-        //     ext_hwrite = 1;
-        //     ext_hburst = 3'd0;
-
-        // #10 ext_hwdata = 32'd343;
-        //     ext_hwrite = 1;
-        //     ext_hsize = 3'd2;
-        //     ext_haddr = 32'd8;
-        //     ext_hburst = 3'd3;
-
-        // # 10 ext_hwdata = 32'd1;
-        // # 10 ext_hwdata = 32'd7;
-        // # 10 ext_hwdata = 32'd10;
-
-        // # 10 ext_hwdata = 32'd12;
-        // # 10 stop_trans = 1;
-        // # 10 stop_trans = 0;
-        //      ext_haddr = 32'd17;
-        //      ext_hsize = 3'd2;
-        //      ext_hwrite = 1;
-        //      ext_hburst = 3'd5;
-
-        // #10 ext_hwdata = 32'd68;
-
-        // #10 ext_hwdata = 32'd70;
-
-        // #10 ext_hwdata = 32'd72;
-
-        // #10 ext_hwdata = 32'd74;
-
-        // #10 ext_hwdata = 32'd76;
-
-        // #10 ext_hwdata = 32'd78;
-
-        // #10 ext_hwdata = 32'd80;
-
-        // #10 ext_hwdata = 32'd03;
-
-
-
-        #10 stop_trans = 1;
-        #10 start_trans = 0;
+    
 
         #1000 $finish();
     end

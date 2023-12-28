@@ -61,7 +61,7 @@ module sram_bist(
     //sram data output
     assign sram_data_out = dft_en ? dft_data_r : data_out;
     
-    assign bist_clk = bist_en ? hclk : 1'b0;
+//    assign bist_clk = bist_en ? hclk : 1'b0;
 
     // One sram with BIST and DFT function
     // sram_sp_hse_8kx8 : sram singleport high density 8k depth x 8bit width
@@ -76,7 +76,7 @@ module sram_bist(
     );
 
     sram_bist_8kx8 u_sram_bist_8kx8(
-        .b_clk   (bist_clk),   
+        .b_clk   (hclk),   
         .b_rst_n (sram_rst_n), 
         .b_te    (bist_en),    
         //--------------------------------------------------------
