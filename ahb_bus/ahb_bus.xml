@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<efx:project name="ahb_bus" description="" last_change_date="Thu December 28 2023 17:37:21" location="/home/chaya/efinity/2023.1/project/ahb_bus" sw_version="2023.1.150" last_run_state="pass" last_run_tool="efx_pgm" last_run_flow="bitstream" config_result_in_sync="true" design_ood="sync" place_ood="sync" route_ood="sync" xmlns:efx="http://www.efinixinc.com/enf_proj" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.efinixinc.com/enf_proj enf_proj.xsd">
+<efx:project name="ahb_bus" description="" last_change_date="Fri December 29 2023 16:55:05" location="/home/chaya/efinity/2023.1/project/ahb_bus" sw_version="2023.1.150" last_run_state="crash" last_run_tool="python3" last_run_flow="place" config_result_in_sync="true" design_ood="sync" place_ood="change" route_ood="change" xmlns:efx="http://www.efinixinc.com/enf_proj" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.efinixinc.com/enf_proj enf_proj.xsd">
     <efx:device_info>
         <efx:family name="Trion"/>
         <efx:device name="T120F324"/>
@@ -58,9 +58,9 @@
         <efx:param name="work_dir" value="work_pnr" value_type="e_string"/>
         <efx:param name="verbose" value="off" value_type="e_bool"/>
         <efx:param name="load_delaym" value="on" value_type="e_bool"/>
-        <efx:param name="optimization_level" value="NULL" value_type="e_option"/>
+        <efx:param name="optimization_level" value="TIMING_3" value_type="e_option"/>
         <efx:param name="seed" value="1" value_type="e_integer"/>
-        <efx:param name="placer_effort_level" value="2" value_type="e_option"/>
+        <efx:param name="placer_effort_level" value="4" value_type="e_option"/>
         <efx:param name="max_threads" value="-1" value_type="e_integer"/>
     </efx:place_and_route>
     <efx:bitstream_generation tool_name="efx_pgm">
