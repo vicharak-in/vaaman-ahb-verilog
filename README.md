@@ -8,6 +8,7 @@ This repository hosts a Verilog implementation of the Advanced High-performance 
 
 ### IMPLEMENTATION DETAILS
 
+
 > Master - master_ahb module
    * This is the master interface of AHB which initiates the write or read transaction to its slaves.
    
