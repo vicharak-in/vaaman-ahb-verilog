@@ -29,7 +29,7 @@ module tb_top_ahb_multi_slave ();
 
     top_ahb_multi_slaves top_mod(
         .hclk          (hclk),
-//        .sram_clk      (sram_clk),
+        .sram_clk      (sram_clk),
         .hresetn       (hresetn),
         .stop_trans    (stop_trans),
         .start_trans   (start_trans),
@@ -43,7 +43,7 @@ module tb_top_ahb_multi_slave ();
 
     );
     always #5 hclk = ~hclk;
-//    assign sram_clk = ~hclk;
+    assign sram_clk = ~hclk;
     initial begin
 	    hclk = 0;
         start_trans = 0;

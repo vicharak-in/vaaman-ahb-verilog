@@ -32,7 +32,7 @@ module RA1SH_v1 (
     
    assign Q = q_reg;
 
-        always @(posedge CLK) begin
+        always @(negedge CLK) begin
             if (!CEN) begin
                 if (!WEN) begin
                     mem [A] <= D;
